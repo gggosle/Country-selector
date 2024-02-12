@@ -102,7 +102,7 @@ function createStyles(styles) {
 }
 
 function loadFontAwesome(shadow){
-    const fontAwesomeScript = this.getScript("fontawesome");
+    const fontAwesomeScript = getScript("fontawesome");
 
     const id = setInterval(() => {
         const fontAwesomeFont = document.querySelector('#fa-v5-font-face');
@@ -126,6 +126,10 @@ customElements.define('country-select', class extends HTMLElement {
     shadow = this.attachShadow({mode: 'open'});
 
     connectedCallback() {
+        this.configureShadow();
+    }
+
+    configureShadow() {
         loadFontAwesome(this.shadow);
 
         const options = createOptions(this.shadow);
