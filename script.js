@@ -33,16 +33,14 @@ const stylesForShadow = `
             `;
 
 function createOptions(selector) {
-    const options = countries.map((country) => {
+    return countries.map((country) => {
         const option = createOptionElement(country);
-        option.addEventListener('click', (event) => {
+        option.addEventListener('click', () => {
             selector.prepend(option);
             toggleSelectList(selector);
         });
         return option;
     });
-
-    return options;
 }
 
 function createOptionElement(country) {
